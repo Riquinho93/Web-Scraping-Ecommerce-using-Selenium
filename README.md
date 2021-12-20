@@ -1,6 +1,6 @@
 # Web Scraping E-commerce using Selenium
 
-## Objetive
+## Objective
 
 Extracting information from an ecommerce site with Selenium and download the information in excel file.
 
