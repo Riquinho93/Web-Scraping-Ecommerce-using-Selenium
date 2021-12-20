@@ -17,14 +17,14 @@ learning to have with the web scraping tools is very useful.
 
 ## Implementation
 
-First, import our libraries:
+First, import the libraries:
 
           from selenium import webdriver
           from time import sleep
           from selenium.webdriver.chrome.options import Options
           import pandas as 
           
-  Then I created a class called WebScrappy. In the fuction __init__ we have Chrome WebDriver Options with my customize and configure a ChromeDriver session.
+  I created a class called WebScrappy. In the __init__ function we have Chrome WebDriver Options with my customization and configuration of a ChromeDriver session.
   
         def __init__(self):
               chrome_options = Options()
@@ -33,13 +33,12 @@ First, import our libraries:
               self.driver = webdriver.Chrome(executable_path=r'C:\Users\chromedriver.exe', options=chrome_options)
               self.driver.set_window_size(800,700)
         
-I created one fuction to access the site.
+I created a function to access the website.
         
         def start(self):
               self.access_site()
   
- Inside the access site fuction there are load the webpage, get the input elemens by xpath, send the input to the webpage with name Machine Learning,
- click on search button and call the extrac information fuction.
+Within the access site function we load the web page, we get the input elements by xpath, we send the input to the web page with the name Machine Learning, click the search button and call the information extraction function.
  
         def access_site(self):
               # load the webpage
@@ -53,7 +52,7 @@ I created one fuction to access the site.
               search_button.click()
               self.extract_info()
 
-In extraction information fuction there are
+Within the Information Extract function the product title and price are extracted by xpath and stored in lists. Data is collected from page 1 to page 6. And at the end, we save in the save_info_excel function.
 
           def extract_info(self):
                   # create lists of product and price
@@ -80,7 +79,7 @@ In extraction information fuction there are
 
                   self.save_info_excel(products_list, prices_list)
         
-  In the las funtion, we save the information on excel file
+  In the last function, the information is saved in the excel file using pandas.
 
              def save_info_excel(self, products_list, prices_list):
                   df = pd.DataFrame(columns=['Product'])
